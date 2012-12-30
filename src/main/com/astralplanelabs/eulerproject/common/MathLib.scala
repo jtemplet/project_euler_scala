@@ -62,4 +62,36 @@ trait MathLib {
     }
     return true
   }
+
+  def gcd(x:Int, y:Int):Int = {
+    if (y == 0) return x else return gcd(y, x%y)
+  }
+
+  def sum(xs: List[Int]): Int = {
+    if (xs.isEmpty) throw new NoSuchElementException("List is empty")
+    if (xs.length == 1) return xs.head
+    return xs.head + sum(xs.tail)
+  }
+
+  def max(xs: List[Int]): Int = {
+    if (xs.isEmpty) throw new NoSuchElementException("List is empty")
+    def loop(xs: List[Int], acc:Int):Int = {
+      if (xs.length == 1) return acc
+      if (xs.head > acc) {
+        return loop(xs.tail, xs.head)
+      }
+      return loop(xs.tail, acc)
+    }
+    return loop(xs.tail, xs.head)
+  }
+
+  def get_divisors(n:Int):List[Int] = {
+    var div:List[Int] = List()
+
+    for (i <- 1 to (n/2)) {
+      if ((n%i) == 0)
+        div = i :: div
+    }
+    div
+  }
 }
