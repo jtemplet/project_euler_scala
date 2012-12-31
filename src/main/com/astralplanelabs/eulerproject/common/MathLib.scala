@@ -67,12 +67,24 @@ trait MathLib {
     if (y == 0) return x else return gcd(y, x%y)
   }
 
+  /** *******************************
+    * Recursive sum not using foldLeft
+    *
+    * @param xs
+    * @return
+    *********************************/
   def sum(xs: List[Int]): Int = {
     if (xs.isEmpty) throw new NoSuchElementException("List is empty")
     if (xs.length == 1) return xs.head
     return xs.head + sum(xs.tail)
   }
 
+  /** *******************************
+    * Recursive max not using foldLeft
+    *
+    * @param xs
+    * @return
+    *********************************/
   def max(xs: List[Int]): Int = {
     if (xs.isEmpty) throw new NoSuchElementException("List is empty")
     def loop(xs: List[Int], acc:Int):Int = {
