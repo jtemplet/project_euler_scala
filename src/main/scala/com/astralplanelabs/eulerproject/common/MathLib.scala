@@ -108,4 +108,21 @@ trait MathLib {
     }
     div
   }
+
+  def isRightTriangle(sides:List[Int]):Boolean = {
+    if (sides.size != 3) return false
+    // get the longest side aka the hyp
+    val hyp:Int = max(sides)
+    val sorted:List[Int] = sides.filter(_ != hyp)
+    if (sorted.size < 2) return false
+    val a:Int = sorted(0)
+    val b:Int = sorted(1)
+
+    // verify a*a + b*b = hyp*hyp
+    ((a*a + b*b) == hyp*hyp)
+  }
+
+  def isTriangle(sides:List[Int], perimeter:Int) = {
+    (sides.reduceLeft(_ + _) == perimeter)
+  }
 }
