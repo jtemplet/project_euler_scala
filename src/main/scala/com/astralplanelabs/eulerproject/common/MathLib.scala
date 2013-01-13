@@ -125,4 +125,8 @@ trait MathLib {
   def isTriangle(sides:List[Int], perimeter:Int) = {
     (sides.reduceLeft(_ + _) == perimeter)
   }
+
+  def getPentagonNumber(i:Int):Int = {
+    (i *(3*i-1)/2)
+  }
 }
