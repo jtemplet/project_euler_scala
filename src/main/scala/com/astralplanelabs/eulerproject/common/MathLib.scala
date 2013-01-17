@@ -53,7 +53,10 @@ trait MathLib {
     return res
   }
 
-  def isCircular(x:Int): Boolean = {
+  //
+  // Circular prime, all rotations of a number, ex 197, 971, 719 are prime
+  //
+  def isCircularPrime(x:Int): Boolean = {
     var s:String = x.toString
 
     for (i <- 1 until s.length) {
@@ -65,6 +68,9 @@ trait MathLib {
     return true
   }
 
+  //
+  // Find Greatest Common Denominator
+  //
   def gcd(x:Int, y:Int):Int = {
     if (y == 0) return x else return gcd(y, x%y)
   }
@@ -129,4 +135,20 @@ trait MathLib {
   def getPentagonNumber(i:Int):Int = {
     (i *(3*i-1)/2)
   }
+
+  //
+  // Given 4999, returns List(9994, 9949, 9499, 4999)
+  //
+  def generatePermutations(n:Int):List[Int] = {
+    var perms:List[Int] = List()
+    val numAsString:String = "" + n
+    val it = numAsString.permutations
+    while (it.hasNext) {
+      val s:String = it.next()
+      perms = Integer.parseInt(s) :: perms
+    }
+    perms
+  }
+
+  def isPermutation(a:Int,b:Int):Boolean = { a.toString.sorted == b.toString.sorted }
 }
