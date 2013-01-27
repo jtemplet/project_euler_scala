@@ -8,25 +8,23 @@ package com.astralplanelabs.eulerproject.common
 trait MathLib {
 
   def isPrime(x:Int): Boolean = {
-    if (x==4) return false
-    //val range = Range(2, Math.sqrt(x).toInt)
-    val range = Range(2, x/2)
-
-    for (m <- range) {
-      //println(x + " % " + m + " = " + (x%m))
+    if ((x == 1) || (x == 4)) return false
+    if ((x >= 2) && (x <= 5)) return true
+    if ((x%2 == 0) || (x%3 == 0) || (x%5 == 0)) return false
+    val max:Int = StrictMath.sqrt(x).ceil.toInt
+    for (m <- 2 to max) {
       if ((x%m) == 0) return false
     }
-    //println(x + " is a prime")
-    return true
+    true
   }
 
   def isComposite(x:Int): Boolean = !isPrime(x)
 
-  def isPanDigital(p:Double, d:Int):Boolean = {
-    var numString:String = p + ""
-    if (numString.length != (d+1)) return false
+  def isPanDigital(p:BigInt, d:Int):Boolean = {
+    val numString:String = (p + "")
+    if (numString.length != d) return false
 
-    for (i <- (new Range(0, (d+1), 1))) {
+    for (i <- 1 to 9) {
       if (!numString.contains("" + i)) return false
     }
     return true
@@ -151,4 +149,9 @@ trait MathLib {
   }
 
   def isPermutation(a:Int,b:Int):Boolean = { a.toString.sorted == b.toString.sorted }
+
+  def factorial(a:Int):Int = {
+    if (a == 1) return 1
+    else factorial(a-1) * a
+  }
 }
