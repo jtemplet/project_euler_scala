@@ -15,6 +15,7 @@ object Problem28 extends App {
       if ((counter % 4 == 0) && (counter > 0)){
         lc += 2
       }
+      println(i)
       return i + sdr(i-(spiralSize-lc), counter+1, lc)
     }
     return sdr(spiralSize*spiralSize, 0, 1)
@@ -39,7 +40,7 @@ object Problem28 extends App {
   }
 
   var currentTime:Long = System.currentTimeMillis()
-  val sumRec:Int = spiralDiagonalRecursive(1001)
+  val sumRec:Int = spiralDiagonalRecursive(5)
   println("Sum Recursive " + sumRec + " took " + (System.currentTimeMillis() - currentTime))
   //currentTime = System.currentTimeMillis()
   //val sumNR:Int = spiralDiagonal(1001)

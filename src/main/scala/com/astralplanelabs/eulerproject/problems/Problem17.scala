@@ -9,7 +9,7 @@ package com.astralplanelabs.eulerproject.problems
  **/
 object Problem17 {
 
-  var numbersAsWordsOnes:Map[Int, String] = Map(
+  val numbersAsWordsOnes:Map[Int, String] = Map(
     1 -> "one",
     2 -> "two",
     3 -> "three",
@@ -20,7 +20,7 @@ object Problem17 {
     8 -> "eight",
     9 -> "nine")
 
-  var numbersAsWordsTeens:Map[Int, String] = Map(10 -> "ten",
+  val numbersAsWordsTeens:Map[Int, String] = Map(10 -> "ten",
     11 -> "eleven",
     12 -> "twelve",
     13 -> "thirteen",
@@ -31,7 +31,7 @@ object Problem17 {
     18 -> "eighteen",
     19 -> "nineteen")
 
-  var numbersAsWordsTens:Map[Int, String] = Map(2 -> "twenty",
+  val numbersAsWordsTens:Map[Int, String] = Map(2 -> "twenty",
     3 -> "thirty",
     4 -> "forty",
     5 -> "fifty",
